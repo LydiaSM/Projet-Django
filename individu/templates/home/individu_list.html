@@ -1,17 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <title>First page</title>
+        <link rel="stylesheet" href="{% static 'css/individu.css' %}">
     </head>
 
     <body>
 
-        <p>Liste des individus</p>
-    
-        {% for individu in individus %}  
-            <div>
-                <h1><a href="">{{ individu }}</a></h1>
-            </div>
-        {% endfor %}
+        <div class="haut_page">
+            <center>
+                <h1>Gestionnaire</h1>
+            </center>
+        </div>
+
+    <br/>
+    <br/>
+         
+        <div>
+            <center>
+                <table rules=all border=3 style="width:50%">
+                <h2><font size=5><u> Liste des individus </u></font><br/></h2>
+            
+
+                <tr>
+                    <td><b><font color=blue>NOM</font></b></td>
+                    <td><b><font color=blue>PRENOM</font></b></td>
+                </tr>
+
+                {% for individu in individus %} 
+                <tr>
+                    <td><a href="{% url 'Action' pk=individu.pk %}">{{individu.NOM}}</a></td>
+                    <td>{{individu.PRENOM}}</td>
+                </tr>
+                {% endfor %}
+
+                </table>
+            </center>
+        </div>
+            
 
     </body>
 

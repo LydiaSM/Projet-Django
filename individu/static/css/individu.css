@@ -1,0 +1,20 @@
+.haut_page {
+    background-color: #ec8943;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.haut_page h1 {
+    color: #ffffff;
+    font-size: 30pt;
+    text-decoration: none;
+}
+
+body {
+    padding-left: 10px;
+}
+
+h1 a {
+    color: #f87a20;
+    font-family: 'Lobster';
+}
