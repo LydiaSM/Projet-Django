@@ -6,11 +6,16 @@
         <link rel="stylesheet" href="{% static 'css/individu.css' %}">
     </head>
 
+    {% if user.is_authenticated %}
+        <a href="{% url 'NVindividu' %}"></a>
+    {% endif %}
+
     <body>
 
         <div class="haut_page">
             <center>
                 <h1>Gestionnaire</h1>
+                <a href="{% url 'NVindividu' %}"> +Ajout Individu </a>
             </center>
         </div>
 
@@ -30,7 +35,7 @@
 
                 {% for individu in individus %} 
                 <tr>
-                    <td><a href="{% url 'Action' pk=individu.pk %}">{{individu.NOM}}</a></td>
+                    <td><a href="{% url 'Detail' pk=individu.pk %}">{{individu.NOM}}</a></td>
                     <td>{{individu.PRENOM}}</td>
                 </tr>
                 {% endfor %}
@@ -38,6 +43,8 @@
                 </table>
             </center>
         </div>
+        
+        <img src="logo.png" width="270" height="100" id="logo">
             
 
     </body>

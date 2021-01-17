@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>NV individu</title>
+        <link rel="stylesheet" href="{% static 'css/individu.css' %}">
+        
+    </head>
+
+    <body>
+
+        <div class="haut_page">
+            <center>
+                <h1>Gestionnaire</h1>
+            </center>
+        </div>
+
+        <div>
+            <center>
+            <form method="POST">{% csrf_token %}        
+                {{ form.as_p }}
+                <button type="submit">Enregistrer</button>
+            </form>
+            </center>
+        </div>    
+
+    </body>
+
+</html>

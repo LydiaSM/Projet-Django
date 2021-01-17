@@ -13,7 +13,7 @@ class Individu (models.Model):
     ANNUAIRE = models.IntegerField()
 
 
-    def ajoutgroupe(self):
+    def publish(self):
         self.save()
 
     def __str__(self):
