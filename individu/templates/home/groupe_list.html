@@ -10,7 +10,15 @@
 
         <div class="haut_page">
             <center>
+
                 <h1>Gestionnaire</h1>
+
+                <a href="{% url 'accueil'%}">Accueil</a><br><br>
+
+                {% if user.is_authenticated %}        
+                    <a href="{% url 'NVgroupe' %}"> +Ajout Groupe </a>
+                {% endif %}
+
             </center>
         </div>
 
@@ -19,6 +27,9 @@
          
         <div>
             <center>
+
+                
+
                 <table rules=all border=3 style="width:50%">
                 <h2><font size=5><u> Liste des groupes </u></font><br/></h2>
             

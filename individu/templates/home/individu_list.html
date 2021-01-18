@@ -10,8 +10,10 @@
 
         <div class="haut_page">
             <center>
-                
+
                 <h1>Gestionnaire</h1>
+
+                <a href="{% url 'accueil'%}">Accueil</a><br><br>
 
                 {% if user.is_authenticated %}        
                     <a href="{% url 'NVindividu' %}"> +Ajout Individu </a>

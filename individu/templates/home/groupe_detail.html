@@ -10,7 +10,26 @@
 
             <center>
 
+                <a href="{% url 'accueil'%}">Accueil</a><br>
+
                 <a>AJOUTER LES ETUDIANTS A LAIDE DUNE CLEF ETRANGERE</a>
+
+                <table rules=all border=3 style="width:50%">
+                    <h2><font size=5><u> Groupe: </u></font><br/></h2>
+    
+                    <tr>
+                        <td><b><font color=blue>ANNEE</font></b></td>
+                        <td><b><font color=blue>FILIERE</font></b></td>
+                        <td><b><font color=blue>NOM</font></b></td>
+                    </tr>
+    
+                    <tr>
+                        <td>{{groupe.ANNEE}}</td>
+                        <td>{{groupe.FILIERE}}</td>
+                        <td>{{groupe.NOM}}</td>
+                    </tr>
+    
+                    </table>
                 
             </center>
             

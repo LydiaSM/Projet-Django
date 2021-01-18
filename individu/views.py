@@ -1,9 +1,10 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
-from .models import Individu
 from django.shortcuts import render, get_object_or_404
+from .models import Individu
 from .forms import IndividuForm                 #acces au formulaire du nv individu
 from .models import Groupe
+from .forms import GroupeForm                   #acces au formulaire du nv groupe
 
 
 def individu_list(request):
@@ -40,6 +41,7 @@ def ModifIndividu(request, pk):
     return render(request, 'home/ModifIndividu.html', {'form': form})
 
 
+
 def groupe_list(request):
     groupes= Groupe.objects.all()
     return render(request, 'home/groupe_list.html', {'groupes': groupes})
@@ -47,6 +49,19 @@ def groupe_list(request):
 def groupe_detail(request, pk):
     groupe = get_object_or_404(Groupe, pk=pk)
     return render(request, 'home/groupe_detail.html', {'groupe': groupe})
+
+def NVgroupe(request):
+    if request.method == "POST":                #qd on saisie des données
+        form = GroupeForm(request.POST)
+        if form.is_valid():                     #verifie que les champs sont corrects et non vides
+            groupe = form.save(commit=False)
+            groupe.statut = request.user
+            groupe.save()
+            return redirect('groupe_detail', pk=groupe.pk)
+    else:
+        form = GroupeForm()
+    return render(request, 'home/ModifGroupe.html', {'form': form})
+
 
 
 def accueil(request):
