@@ -3,9 +3,8 @@ from django.shortcuts import render
 from .models import Individu
 from django.shortcuts import render, get_object_or_404
 from .forms import IndividuForm                 #acces au formulaire du nv individu
+from .models import Groupe
 
-
-# Create your views here.
 
 def individu_list(request):
     individus= Individu.objects.all()           #publier tt les individus
@@ -20,7 +19,7 @@ def NVindividu(request):
         form = IndividuForm(request.POST)
         if form.is_valid():                     #verifie que les champs sont corrects et non vides
             individu = form.save(commit=False)
-            individu.author = request.user
+            individu.statut = request.user
             individu.save()
             return redirect('Detail', pk=individu.pk)
     else:
@@ -33,12 +32,26 @@ def ModifIndividu(request, pk):
         form = IndividuForm(request.POST, instance=individu)
         if form.is_valid():
             individu = form.save(commit=False)
-            individu.author = request.user
+            individu.statut = request.user
             individu.save()
             return redirect('Detail', pk=individu.pk)
     else:
         form = IndividuForm(instance=individu)
     return render(request, 'home/ModifIndividu.html', {'form': form})
+
+
+def groupe_list(request):
+    groupes= Groupe.objects.all()
+    return render(request, 'home/groupe_list.html', {'groupes': groupes})
+
+def groupe_detail(request, pk):
+    groupe = get_object_or_404(Groupe, pk=pk)
+    return render(request, 'home/groupe_detail.html', {'groupe': groupe})
+
+
+def accueil(request):
+    return render(request, 'home/Accueil.html', {})
+
 
 
 

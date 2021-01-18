@@ -2,7 +2,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Liste d'individus</title>
+        <title>Liste des groupes</title>
         <link rel="stylesheet" href="{% static 'css/individu.css' %}">
     </head>
 
@@ -10,13 +10,7 @@
 
         <div class="haut_page">
             <center>
-                
                 <h1>Gestionnaire</h1>
-
-                {% if user.is_authenticated %}        
-                    <a href="{% url 'NVindividu' %}"> +Ajout Individu </a>
-                {% endif %}
-
             </center>
         </div>
 
@@ -26,18 +20,22 @@
         <div>
             <center>
                 <table rules=all border=3 style="width:50%">
-                <h2><font size=5><u> Liste des individus </u></font><br/></h2>
+                <h2><font size=5><u> Liste des groupes </u></font><br/></h2>
             
 
                 <tr>
+                    <td><b><font color=blue>ID</font></b></td>
+                    <td><b><font color=blue>ANNEE</font></b></td>
+                    <td><b><font color=blue>FILIERE</font></b></td>
                     <td><b><font color=blue>NOM</font></b></td>
-                    <td><b><font color=blue>PRENOM</font></b></td>
                 </tr>
 
-                {% for individu in individus %} 
+                {% for groupe in groupes %} 
                 <tr>
-                    <td><a href="{% url 'Detail' pk=individu.pk %}">{{individu.NOM}}</a></td>
-                    <td>{{individu.PRENOM}}</td>
+                    <td>{{groupe.ID}}</td>
+                    <td>{{groupe.ANNEE}}</td>
+                    <td>{{groupe.FILIERE}}</td>
+                    <td><a href="{% url 'groupe_detail' pk=groupe.pk %}">{{groupe.NOM}}</a></td>
                 </tr>
                 {% endfor %}
 

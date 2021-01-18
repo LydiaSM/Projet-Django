@@ -1,8 +1,14 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.individu_list, name='individu_list'),
-    path('individu/<int:pk>/', views.Detail, name='Detail'),
+    path('', views.accueil, name='accueil'),
+
+    path('groupe/', views.groupe_list, name='groupe_list'),
+    path('groupe/<int:pk>/', views.groupe_detail, name='groupe_detail'),
+
+
+    path('individu/', views.individu_list, name='individu_list'),
     path('individu/nv/', views.NVindividu, name='NVindividu'),
+    path('individu/<int:pk>/', views.Detail, name='Detail'),
     path('indivu/<int:pk>/modifier/', views.ModifIndividu, name='ModifIndividu'),
 ]

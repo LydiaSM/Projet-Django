@@ -12,6 +12,9 @@
                 <table rules=all border=3 style="width:50%">
                 <h2><font size=5><u> Description de l'individu </u></font><br/></h2>
             
+                {% if user.is_authenticated %}
+                    <a href="{% url 'ModifIndividu' pk=individu.pk %}">Modifier</a>
+                {% endif %}
 
                 <tr>
                     <td><b><font color=blue>NOM</font></b></td>

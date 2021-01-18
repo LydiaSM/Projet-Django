@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>ACCUEIL</title>
+        <link rel="stylesheet" href="{% static 'css/individu.css' %}">
+    </head>
+
+    <body>
+
+        <div class="haut_page">
+            <center>
+                <h1>Gestion Nanterre</h1>
+            </center>
+        </div>
+
+    <br/>
+    <br/>
+         
+        <div>
+            <center>
+                
+                <a href="{% url 'groupe_list'%}">Afficher les groupes de TD</a><br>
+                <a href="{% url 'individu_list'%}">Afficher les membres de la fac</a>
+    
+            </center>
+        </div>
+        
+        <img src="logo.png" width="270" height="100" id="logo">
+
+    </body>
+
+</html>

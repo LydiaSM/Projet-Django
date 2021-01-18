@@ -5,4 +5,4 @@ class IndividuForm(forms.ModelForm):        #formulaire
 
     class Meta:
         model = Individu                        #utiliser le model Individu
-        fields = ('NOM', 'PRENOM', 'EMAIL', 'NUM', 'ANNUAIRE',)
+        fields = ('NOM', 'PRENOM', 'EMAIL', 'NUM', 'ANNUAIRE', 'GROUPE', 'STATUT')
