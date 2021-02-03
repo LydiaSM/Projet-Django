@@ -3,20 +3,25 @@
 <html>
     <head>
         <title>Detail individu</title>
+        <link rel="stylesheet" href="{% static 'css/individu.css' %}">
     </head>
 
     <body>
+
+        <div class="haut_page">
+            <center>
+                <h1>Detail de l'individu</h1>
+                
+                <a href="{% url 'accueil'%}">Accueil</a><br>
+            </center>
+        </div>
+
         <div>
             
             <center>
-                <a href="{% url 'accueil'%}">Accueil</a><br>
 
                 <table rules=all border=3 style="width:50%">
                 <h2><font size=5><u> Description de l'individu </u></font><br/></h2>
-            
-                {% if user.is_authenticated %}
-                    <a href="{% url 'ModifIndividu' pk=individu.pk %}">Modifier</a>
-                {% endif %}
 
                 <tr>
                     <td><b><font color=blue>NOM</font></b></td>
@@ -24,6 +29,8 @@
                     <td><b><font color=blue>EMAIL</font></b></td>
                     <td><b><font color=blue>NUM</font></b></td>
                     <td><b><font color=blue>ANNUAIRE</font></b></td>
+                    <td><b><font color=blue>GROUPE</font></b></td>
+                    <td><b><font color=blue>STATUT</font></b></td>
                 </tr>
 
                 <tr>
@@ -32,9 +39,18 @@
                     <td>{{individu.EMAIL}}</td>
                     <td>{{individu.NUM}}</td>
                     <td>{{individu.ANNUAIRE}}</td>
+                    <td>{{individu.GROUPE}}</td>
+                    <td>{{individu.STATUT}}</td>
                 </tr>
 
                 </table>
+
+                <br>
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'ModifIndividu' pk=individu.pk %}">Modifier</a>
+                {% endif %}
+
             </center>
             
         </div>

@@ -6,6 +6,7 @@ from .forms import IndividuForm                 #acces au formulaire du nv indiv
 from .models import Groupe
 from .forms import GroupeForm                   #acces au formulaire du nv groupe
 
+#permet de connecter les models et les pages html, les templates
 
 def individu_list(request):
     individus= Individu.objects.all()           #publier tt les individus
@@ -60,6 +61,19 @@ def NVgroupe(request):
             return redirect('groupe_detail', pk=groupe.pk)
     else:
         form = GroupeForm()
+    return render(request, 'home/ModifGroupe.html', {'form': form})
+
+def ModifGroupe(request, pk):
+    groupe = get_object_or_404(Groupe, pk=pk)
+    if request.method == "POST":
+        form = GroupeForm(request.POST, instance=groupe)
+        if form.is_valid():
+            groupe = form.save(commit=False)
+            groupe.statut = request.user
+            groupe.save()
+            return redirect('groupe_detail', pk=groupe.pk)
+    else:
+        form = GroupeForm(instance=groupe)
     return render(request, 'home/ModifGroupe.html', {'form': form})
 
 

@@ -11,14 +11,16 @@
 
         <div class="haut_page">
             <center>
-                <h1>Gestionnaire</h1>
+                <h1>Ajouter Groupe</h1>
+                
+                <a href="{% url 'accueil'%}">Accueil</a><br>
             </center>
         </div>
 
         <div>
             <center>
 
-            <a href="{% url 'accueil'%}">Accueil</a><br>
+            
 
             {% block content %}
             <form method="POST">{% csrf_token %}        

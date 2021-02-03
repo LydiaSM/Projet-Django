@@ -6,6 +6,7 @@ urlpatterns = [
     path('groupe/', views.groupe_list, name='groupe_list'),
     path('groupe/nv/', views.NVgroupe, name='NVgroupe'),
     path('groupe/<int:pk>/', views.groupe_detail, name='groupe_detail'),
+    path('group/<int:pk>/modifier/', views.ModifGroupe, name='ModifGroupe'),
 
 
     path('individu/', views.individu_list, name='individu_list'),
